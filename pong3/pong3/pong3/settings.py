@@ -40,18 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'users',
-    
-    'phonenumber_field',
-    #2FA
-    'two_factor',
-    'two_factor.plugins.phonenumber',  # <- if you want phone number capability.
-    'two_factor.plugins.email',  # <- if you want email capability.
-    #'two_factor.plugins.yubikey',  # <- for yubikey capability.
-
-    'django_otp',
-    'django_otp.plugins.otp_totp',
-    'django_otp.plugins.otp_hotp',
-    'django_otp.plugins.otp_static',
+    'pyotp',
 
 ]
 
@@ -60,9 +49,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    #otp
+    
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django_otp.middleware.OTPMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -145,4 +133,4 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Custom user model
-LOGIN_URL = "two-factor:login"
+LOGIN_URL = "users/login/"

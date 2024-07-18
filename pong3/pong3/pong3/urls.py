@@ -19,16 +19,16 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
-from two_factor.urls import urlpatterns as tf_urls
 #from .tokens import account_activation_token
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), 
     path('', views.homepage),
     path('about/', views.about),
     path('posts/', include('posts.urls')),
     path('users/', include('users.urls')),
-    path('account/', include(tf_urls)),
+    #path('login/', include('login.urls')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
